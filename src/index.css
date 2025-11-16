@@ -1,0 +1,128 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink {
+  50% { border-color: transparent }
+}
+
+.animate-typing {
+  display: inline-block;
+  animation: typing 1.6s steps(20), blink 0.7s step-end infinite alternate;
+}
+
+@keyframes startPop {
+  0% { transform: scale(0.5); opacity: 0; }
+  60% { transform: scale(1.3); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.animate-startPop {
+  animation: startPop 1.2s ease-out forwards;
+  animation-delay: 2.1s; /* appears after READY? finishes typing */
+}
+
+@layer base {
+  :root {
+    --background: 220 27% 8%;
+    --foreground: 210 40% 98%;
+
+    --card: 220 25% 12%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 220 25% 12%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 189 100% 56%;
+    --primary-foreground: 220 27% 8%;
+
+    --secondary: 6 93% 71%;
+    --secondary-foreground: 220 27% 8%;
+
+    --muted: 220 20% 20%;
+    --muted-foreground: 210 20% 65%;
+
+    --accent: 271 81% 63%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 20% 25%;
+    --input: 220 20% 20%;
+    --ring: 189 100% 56%;
+
+    --radius: 0.75rem;
+
+    /* Gaming theme colors */
+    --game-glow: 189 100% 56%;
+    --achievement: 271 81% 63%;
+    --xp-bar: 142 76% 56%;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(189 100% 56%), hsl(271 81% 63%));
+    --gradient-card: linear-gradient(135deg, hsl(220 25% 12%), hsl(220 25% 18%));
+    --gradient-hero: linear-gradient(180deg, hsl(220 27% 8%), hsl(220 25% 12%));
+    
+    /* Shadows and effects */
+    --shadow-glow: 0 0 30px hsla(189, 100%, 56%, 0.3);
+    --shadow-card: 0 8px 32px hsla(0, 0%, 0%, 0.4);
+    --shadow-achievement: 0 0 20px hsla(271, 81%, 63%, 0.4);
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+  }
+
+  code, pre, kbd {
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--background));
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary));
+    border-radius: 5px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary) / 0.8);
+  }
+}
