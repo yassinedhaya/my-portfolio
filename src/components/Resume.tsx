@@ -11,7 +11,7 @@ const Resume = () => {
     });
 
     // Add your online resume link here
-    window.open("/yassinedhaya-Resume.pdf", "_blank");
+    window.open("/Yassine_Dhaya_RESUME_EU_2026.pdf", "_blank");
   };
 
   // ---------------------------
