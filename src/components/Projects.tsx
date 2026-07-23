@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, Trophy, Star, Zap, Youtube, CloudDownload } from "lucide-react";
+import { ExternalLink, Trophy, Star, Zap, Youtube, CloudDownload, Github } from "lucide-react";
 import { toast } from "sonner";
 
 interface Project {
@@ -12,16 +12,90 @@ interface Project {
   achievement: string;
   icon: string;
   link?: string;
+  linkLabel: string;
   Trailer?: string;
   Test?: string;
 }
 
 const Projects = () => {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-  const [achievementsShown, setAchievementsShown] = useState<{ [key: number]: boolean }>({}); 
+  const [hoveredProject, setHoveredProject] = useState<string | null>(null);
+  const [shownAchievements, setShownAchievements] = useState<{ [key: string]: boolean }>({});
   // tracks which projects have shown their achievement
 
-  const projects: Project[] = [
+  const githubProjects: Project[] = [
+    {
+      title: "LocalMind",
+      description:
+        "A private, on-device AI assistant for Android with offline chat, PDF Q&A, voice features, and a native Kotlin inference layer powered by Google AI Edge LiteRT.",
+      tags: ["React Native", "Kotlin", "Android", "Gemma", "On-device AI"],
+      achievement: "Offline AI Builder",
+      icon: "📱",
+      link: "https://github.com/yassinedhaya/LocalMind",
+      linkLabel: "Repository",
+    },
+    {
+      title: "TailoredCV",
+      description:
+        "An AI-powered CV tailoring platform with ATS scoring, recruiter simulation, market-specific formatting, and secure Supabase-backed workflows.",
+      tags: ["React", "TypeScript", "Supabase", "PostgreSQL", "OpenAI"],
+      achievement: "Career Toolsmith",
+      icon: "🧾",
+      link: "https://github.com/yassinedhaya/TailoredCV",
+      linkLabel: "Repository",
+    },
+    {
+      title: "CV-Maker-Local",
+      description:
+        "A local-first resume tailoring and job hunting workspace with per-section AI agents, ATS scoring, browser extension support, and private Ollama-based processing.",
+      tags: ["FastAPI", "React", "Electron", "Ollama", "Playwright"],
+      achievement: "Local AI Architect",
+      icon: "🧠",
+      link: "https://github.com/yassinedhaya/CV-Maker-Local",
+      linkLabel: "Repository",
+    },
+    {
+      title: "AutoPost",
+      description:
+        "A full-stack SaaS platform for job discovery, CV tailoring, ATS optimization, alerts, and application tracking across multiple public job sources.",
+      tags: ["FastAPI", "Next.js", "PostgreSQL", "Docker", "AI"],
+      achievement: "Workflow Automator",
+      icon: "🚀",
+      link: "https://github.com/yassinedhaya/Auto-Post",
+      linkLabel: "Repository",
+    },
+    {
+      title: "EspritNote",
+      description:
+        "A desktop grade and module manager for teachers that streamlines imports, continuous-assessment calculations, exports, and academic status workflows.",
+      tags: ["Electron", "React", "TypeScript", "Tailwind", "XLSX"],
+      achievement: "EdTech Builder",
+      icon: "📊",
+      link: "https://github.com/yassinedhaya/EspritNote",
+      linkLabel: "Repository",
+    },
+    {
+      title: "Surveillance-Esprit",
+      description:
+        "A desktop productivity app built to calculate surveillance workloads and simplify teaching operations with a focused internal tooling experience.",
+      tags: ["JavaScript", "Desktop", "Operations", "Productivity"],
+      achievement: "Ops Simplifier",
+      icon: "🛡️",
+      link: "https://github.com/yassinedhaya/Surveillance-Esprit",
+      linkLabel: "Repository",
+    },
+    {
+      title: "teacher-assigner-helper",
+      description:
+        "A TypeScript helper tool to streamline teacher assignment workflows with clearer organization and automation for repetitive allocation tasks.",
+      tags: ["TypeScript", "Automation", "Productivity"],
+      achievement: "Workflow Tactician",
+      icon: "🧩",
+      link: "https://github.com/yassinedhaya/teacher-assigner-helper",
+      linkLabel: "Repository",
+    },
+  ];
+
+  const researchProjects: Project[] = [
     {
       title: "Tic Tac Toe – MCTS AI",
       description:
@@ -30,6 +104,7 @@ const Projects = () => {
       achievement: "AI Strategist",
       icon: "⭕",
       link: "https://www.linkedin.com/in/yassinedhaya/details/projects/?locale=en_US",
+      linkLabel: "Project Story",
     },
     {
       title: "T-Booky – Book Exchange App",
@@ -39,6 +114,7 @@ const Projects = () => {
       achievement: "App Builder",
       icon: "📚",
       link: "https://www.linkedin.com/in/yassinedhaya/details/projects/?locale=en_US",
+      linkLabel: "Project Story",
     },
     {
       title: "LaughRoom – Multiplayer VR Social Game",
@@ -48,6 +124,7 @@ const Projects = () => {
       achievement: "VR Creator",
       icon: "😂",
       link: "https://www.linkedin.com/in/yassinedhaya/details/projects/?locale=en_US",
+      linkLabel: "Project Story",
       Trailer: "https://www.youtube.com/watch?v=j9TKsLdi8vc",
     },
     {
@@ -58,15 +135,17 @@ const Projects = () => {
       achievement: "Edu Game Dev",
       icon: "🎒",
       link: "https://www.linkedin.com/in/yassinedhaya/details/projects/?locale=en_US",
+      linkLabel: "Project Story",
     },
     {
       title: "Metaxpo – 3D Events Platform",
       description:
-        "Developed a full immersive 3D events platform with interactive booths, real-time chat, admin analytics, and optimized backend pipelines. Showcased at the ESPRIT Bal des Projets.",
-      tags: ["React.js", "TypeScript", "Unity", "C#", "Strapi", "Node.js", "MongoDB"],
+        "A flagship immersive events platform combining full-stack web systems, real-time 3D experiences, and XR product thinking for large interactive showcases.",
+      tags: ["React", "TypeScript", "Unity", "Node.js", "MongoDB"],
       achievement: "XR Innovator",
       icon: "🌐",
       link: "https://www.linkedin.com/in/yassinedhaya/details/projects/?locale=en_US",
+      linkLabel: "Project Story",
     },
     {
       title: "HumAnatomy – Mixed Reality Anatomy App",
@@ -76,6 +155,7 @@ const Projects = () => {
       achievement: "MR Developer",
       icon: "🧠",
       link: "https://www.linkedin.com/in/yassinedhaya/details/projects/?locale=en_US",
+      linkLabel: "Project Story",
     },
     {
       title: "TRICO – AI Virtual Family Companion",
@@ -85,6 +165,7 @@ const Projects = () => {
       achievement: "AI Engineer",
       icon: "🤖",
       link: "https://www.linkedin.com/in/yassinedhaya/details/projects/?locale=en_US",
+      linkLabel: "Project Story",
       Trailer: "https://www.youtube.com/watch?v=CQ659lQ6ebk",
     },
     {
@@ -95,19 +176,113 @@ const Projects = () => {
       achievement: "Game Architect",
       icon: "🎮",
       link: "https://www.linkedin.com/in/yassinedhaya/details/projects/?locale=en_US",
+      linkLabel: "Project Story",
       Trailer: "https://www.youtube.com/watch?v=lBxNnFKvXoY",
       Test: "https://gamix-esprit.itch.io/whispers-of-the-enigma",
     },
   ];
 
-  const handleAchievement = (index: number, achievement: string) => {
-    if (!achievementsShown[index]) {
+  const handleAchievement = (projectId: string, achievement: string) => {
+    if (!shownAchievements[projectId]) {
       toast.success(`🏆 Achievement Unlocked: ${achievement}`, {
         description: "Click on project links to explore more!",
       });
-      setAchievementsShown((prev) => ({ ...prev, [index]: true }));
+      setShownAchievements((prev) => ({ ...prev, [projectId]: true }));
     }
   };
+
+  const renderProjectGrid = (projectList: Project[], category: string) => (
+    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {projectList.map((project, index) => {
+        const projectId = `${category}-${index}`;
+
+        return (
+          <Card
+            key={projectId}
+            className="group bg-card border-border hover:border-primary/50 transition-all duration-300 overflow-hidden"
+            onMouseEnter={() => {
+              setHoveredProject(projectId);
+              handleAchievement(projectId, project.achievement);
+            }}
+            onMouseLeave={() => setHoveredProject(null)}
+          >
+            <CardContent className="p-6 space-y-4 relative">
+              {hoveredProject === projectId && (
+                <div className="absolute top-4 right-4 bg-accent text-accent-foreground px-3 py-1 rounded-full text-xs font-bold animate-achievement-pop flex items-center gap-1">
+                  <Trophy className="w-3 h-3" />
+                  {project.achievement}
+                </div>
+              )}
+
+              <div className="text-5xl mb-4 group-hover:scale-110 transition-transform">
+                {project.icon}
+              </div>
+
+              <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
+                {project.title}
+              </h3>
+
+              <p className="text-sm text-muted-foreground leading-relaxed min-h-[100px]">
+                {project.description}
+              </p>
+
+              <div className="flex flex-wrap gap-2">
+                {project.tags.map((tag) => (
+                  <Badge
+                    key={tag}
+                    variant="secondary"
+                    className="text-xs bg-white hover:bg-muted/80"
+                  >
+                    {tag}
+                  </Badge>
+                ))}
+              </div>
+
+              <div className="flex gap-2 pt-2">
+                {project.link && (
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    className="flex-1 border-primary/30 hover:bg-primary/10"
+                    onClick={() => window.open(project.link, "_blank")}
+                  >
+                    {project.linkLabel === "Repository" ? (
+                      <Github className="w-4 h-4 mr-1" />
+                    ) : (
+                      <ExternalLink className="w-4 h-4 mr-1" />
+                    )}
+                    {project.linkLabel}
+                  </Button>
+                )}
+                {project.Trailer && (
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    className="flex-1 border-primary/30 hover:bg-primary/10"
+                    onClick={() => window.open(project.Trailer, "_blank")}
+                  >
+                    <Youtube className="w-4 h-4 mr-1" />
+                    Trailer
+                  </Button>
+                )}
+                {project.Test && (
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    className="flex-1 border-primary/30 hover:bg-primary/10"
+                    onClick={() => window.open(project.Test, "_blank")}
+                  >
+                    <CloudDownload className="w-4 h-4 mr-1" />
+                    Download
+                  </Button>
+                )}
+              </div>
+            </CardContent>
+          </Card>
+        );
+      })}
+    </div>
+  );
 
   return (
     <section id="projects" className="min-h-screen py-20 px-4 bg-background/50">
@@ -122,98 +297,24 @@ const Projects = () => {
             Completed Quests
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            A showcase of epic projects, legendary code, and achievements earned along the journey
+            New product builds from GitHub plus legacy projects preserved in a dedicated R&D archive
           </p>
         </div>
 
-        {/* Projects Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects.map((project, index) => (
-            <Card
-              key={index}
-              className="group bg-card border-border hover:border-primary/50 transition-all duration-300 overflow-hidden"
-              onMouseEnter={() => {
-                setHoveredIndex(index);
-                handleAchievement(index, project.achievement); // unique toast per project
-              }}
-              onMouseLeave={() => setHoveredIndex(null)}
-            >
-              <CardContent className="p-6 space-y-4 relative">
-                {/* Achievement Badge */}
-                {hoveredIndex === index && (
-                  <div className="absolute top-4 right-4 bg-accent text-accent-foreground px-3 py-1 rounded-full text-xs font-bold animate-achievement-pop flex items-center gap-1">
-                    <Trophy className="w-3 h-3" />
-                    {project.achievement}
-                  </div>
-                )}
+        <div className="mb-14">
+          <h3 className="text-2xl font-bold text-foreground mb-2">New Projects from GitHub</h3>
+          <p className="text-muted-foreground mb-6">
+            Recent repositories and products currently active in my development workflow.
+          </p>
+          {renderProjectGrid(githubProjects, "github")}
+        </div>
 
-                {/* Project Icon */}
-                <div className="text-5xl mb-4 group-hover:scale-110 transition-transform">
-                  {project.icon}
-                </div>
-
-                {/* Project Title */}
-                <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
-                  {project.title}
-                </h3>
-
-                {/* Description */}
-                <p className="text-sm text-muted-foreground leading-relaxed min-h-[100px]">
-                  {project.description}
-                </p>
-
-                {/* Tags */}
-                <div className="flex flex-wrap gap-2">
-                  {project.tags.map((tag) => (
-                    <Badge
-                      key={tag}
-                      variant="secondary"
-                      className="text-xs bg-white hover:bg-muted/80"
-                    >
-                      {tag}
-                    </Badge>
-                  ))}
-                </div>
-
-                {/* Action Buttons */}
-                <div className="flex gap-2 pt-2">
-                  {project.link && (
-                    <Button
-                      size="sm"
-                      variant="outline"
-                      className="flex-1 border-primary/30 hover:bg-primary/10"
-                      onClick={() => window.open(project.link, "_blank")}
-                    >
-                      <ExternalLink className="w-4 h-4 mr-1" />
-                      Demo
-                    </Button>
-                  )}
-                  {project.Trailer && (
-                    <Button
-                      size="sm"
-                      variant="outline"
-                      className="flex-1 border-primary/30 hover:bg-primary/10"
-                      onClick={() => window.open(project.Trailer, "_blank")}
-                    >
-                      <Youtube className="w-4 h-4 mr-1" />
-                      Trailer
-                    </Button>
-                  )}
-                  {project.Test && (
-                    <Button
-                      size="sm"
-                      variant="outline"
-                      className="flex-1 border-primary/30 hover:bg-primary/10"
-                      onClick={() => window.open(project.Test, "_blank")}
-                    >
-                      <CloudDownload className="w-4 h-4 mr-1" />
-                      Download
-                    </Button>
-                  )}
-                </div>
-              </CardContent>
-            </Card>
-          ))}
+        <div>
+          <h3 className="text-2xl font-bold text-foreground mb-2">Research & Development Archive</h3>
+          <p className="text-muted-foreground mb-6">
+            Legacy and experimental projects that shaped my current engineering direction.
+          </p>
+          {renderProjectGrid(researchProjects, "rnd")}
         </div>
 
         {/* Bottom CTA – Feedback & Opportunities */}
