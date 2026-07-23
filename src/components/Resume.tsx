@@ -1,212 +1,88 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { Download, Briefcase, GraduationCap, Award, Shield } from "lucide-react";
-import { toast } from "sonner";
+import { Download } from "lucide-react";
+
+const experience = [
+  {
+    title: "Associate Instructor — Software Engineering Track",
+    company: "ESPRIT — Higher School of Engineering & Technology",
+    period: "Dec 2023 – Present",
+    bullets: [
+      "Engineered full-stack applications (Angular, Spring Boot, Node.js, MongoDB) serving 500+ students as the sole engineer on two production systems.",
+      "Cut administrative processing by 40% while maintaining 99.9% uptime across 3 live services.",
+      "Led 7 student Agile squads as technical lead; 5 of 7 teams shipped to production (72% vs 35% departmental average).",
+      "Introduced GitHub Actions CI/CD and Docker for 3 services, reducing release lead time by ~30%.",
+      "Integrated AI coding agents to accelerate sprint velocity by 20–30%.",
+    ],
+  },
+  {
+    title: "Software Engineer Intern",
+    company: "CONTYFIND",
+    period: "Jul 2023 – Sep 2023",
+    bullets: [
+      "Built Spring Boot microservices on a regulated multi-tenant maritime platform.",
+      "Reduced API P95 latency by 25% (800ms to 600ms) via MongoDB optimization and Angular caching.",
+      "Implemented JWT authentication, RBAC with Spring Security, and request interceptors for logging.",
+    ],
+  },
+  {
+    title: "Software Engineer Intern",
+    company: "E-Surveys",
+    period: "Aug 2022 – Oct 2022",
+    bullets: [
+      "Built Angular + Ionic frontend and contributed to Spring Boot / Node.js backend features in an Agile team.",
+      "Identified and resolved two load-related bottlenecks during QA before production deployment.",
+    ],
+  },
+];
 
 const Resume = () => {
   const handleDownload = () => {
-    toast.success("📄 Resume Downloaded!", {
-      description: "Your resume has been downloaded successfully.",
-    });
-
-    window.open(`${import.meta.env.BASE_URL}2026Resume-YD.pdf`, "_blank");
+    window.open(`${import.meta.env.BASE_URL}2026Resume-YD.pdf`, "_blank", "noopener,noreferrer");
   };
 
-  // ---------------------------
-  // EXPERIENCE FROM REAL RESUME
-  // ---------------------------
-  const experience = [
-    {
-      title: "Technical Instructor & Software Developer",
-      company: "ESPRIT",
-      period: "Dec 2023 – Present",
-      achievements: [
-        "Designed project roadmaps aligned with user & business outcomes",
-        "Mentored 100+ engineering students in full-stack & XR development",
-        "Coached 7+ final-year students across 5+ deployed projects",
-        "Organized hackathons & workshops with 50+ participants",
-        "Increased team efficiency by 30% through optimized workflows",
-      ],
-      level: 90,
-    },
-    {
-      title: "Software Developer",
-      company: "CONTYFIND",
-      period: "Jul 2023 – Sep 2023",
-      achievements: [
-        "Built maritime data management web application with Angular, Ionic & Node.js",
-        "Reduced data access time by 25% for 100+ users",
-        "Ensured secure data storage and optimized UX flow",
-      ],
-      level: 70,
-    },
-    {
-      title: "Software Developer",
-      company: "E-Surveys",
-      period: "Aug 2022 – Oct 2022",
-      achievements: [
-        "Developed maritime data storage platform with Angular & Node.js",
-        "Improved system efficiency for 50+ daily active users",
-        "Optimized backend ensuring smoother data operations",
-      ],
-      level: 60,
-    },
-  ];
-
-  // ---------------------------
-  // EDUCATION (REAL DATA)
-  // ---------------------------
-  const education = [
-    {
-      degree: "Engineering Degree in Computer Science (Master’s Equivalent)",
-      school: "ESPRIT",
-      period: "2021 – 2024",
-      honor: "Graduated with Honors • Top of Class Twice",
-    },
-    {
-      degree: "Bachelor's Degree in Electrical Engineering",
-      school: "ISET Bizerte",
-      period: "2017 – 2020",
-      honor: "Completed Successfully",
-    },
-  ];
-
-  // ---------------------------
-  // CERTIFICATIONS (REAL DATA)
-  // ---------------------------
-  const certifications = [
-    "Fusion AI Agent Studio – Foundations Associate (Oracle, 2025)",
-        "Hashgraph Developer (Hashgraph Association, 2025)",
-    "Data Analytics Essentials (Cisco, 2025)",
-    "English Certificate – Proficient Level (EF SET, 2025)",
-  ];
-
   return (
-    <section id="resume" className="min-h-screen py-20 px-4">
-      <div className="max-w-6xl mx-auto">
-
-        {/* ---------------------- HEADER ---------------------- */}
-        <div className="text-center mb-12 animate-fade-in">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/30 rounded-full mb-4">
-            <Shield className="w-4 h-4 text-primary" />
-            <span className="text-sm font-bold text-primary">CHARACTER PROFILE</span>
-          </div>
-
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
-            Career Progression
-          </h2>
-
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-6">
-            Leveling up through professional experience, education, and continuous growth.
+    <section id="experience" className="py-24 px-4 sm:px-6 bg-card/20">
+      <div className="max-w-6xl mx-auto space-y-10">
+        <div className="flex flex-col items-center gap-5 text-center">
+          <p className="text-xs tracking-[0.16em] uppercase text-primary font-medium">Experience</p>
+          <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight">Professional Experience</h2>
+          <p className="text-muted-foreground max-w-2xl">
+            Building production software across education and maritime platforms, with consistent impact on performance,
+            reliability, and delivery speed.
           </p>
-
-          <Button
-            size="lg"
-            className="bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg shadow-primary/30"
-            onClick={handleDownload}
-          >
-            <Download className="mr-2 h-5 w-5" />
-            Download Full Resume
+          <Button size="lg" onClick={handleDownload} className="shadow-sm shadow-primary/30">
+            <Download className="w-4 h-4 mr-2" />
+            View Resume
           </Button>
         </div>
 
-        {/* ---------------------- EXPERIENCE ---------------------- */}
-        <div className="mb-12">
-          <div className="flex items-center gap-3 mb-6">
-            <Briefcase className="w-6 h-6 text-secondary" />
-            <h3 className="text-2xl font-bold text-foreground">Work Experience</h3>
-          </div>
-
-          <div className="space-y-6">
-            {experience.map((job, index) => (
-              <Card
-                key={index}
-                className="bg-card border-border hover:border-secondary/50 transition-colors"
-              >
-                <CardContent className="p-6">
-                  <div className="flex justify-between items-start mb-4">
-                    <div>
-                      <h4 className="text-xl font-bold text-foreground mb-1">{job.title}</h4>
-                      <p className="text-secondary font-medium">{job.company}</p>
-                    </div>
-
-                    <div className="text-right">
-                      <div className="inline-flex items-center gap-2 px-3 py-1 bg-accent/10 border border-accent/30 rounded-full">
-                        <span className="text-xs font-bold text-accent">
-                          LEVEL {job.level}
-                        </span>
-                      </div>
-                      <p className="text-sm text-muted-foreground mt-1">{job.period}</p>
-                    </div>
+        <div className="space-y-6">
+          {experience.map((job) => (
+            <Card key={`${job.company}-${job.period}`} className="border-border/80 bg-card/70">
+              <CardContent className="p-6 sm:p-8 space-y-4">
+                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2">
+                  <div>
+                    <h3 className="text-xl font-semibold tracking-tight">{job.title}</h3>
+                    <p className="text-muted-foreground">{job.company}</p>
                   </div>
-
-                  <ul className="space-y-2">
-                    {job.achievements.map((achievement, i) => (
-                      <li key={i} className="flex items-start gap-2 text-muted-foreground">
-                        <span className="text-primary mt-1">▸</span>
-                        <span>{achievement}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-
-        {/* ---------------------- EDUCATION + CERTIFICATIONS ---------------------- */}
-        <div className="grid md:grid-cols-2 gap-6">
-
-          {/* Education */}
-          <Card className="bg-card border-border">
-            <CardContent className="p-6">
-              <div className="flex items-center gap-3 mb-4">
-                <GraduationCap className="w-6 h-6 text-primary" />
-                <h3 className="text-2xl font-bold text-foreground">Education</h3>
-              </div>
-
-              {education.map((edu, index) => (
-                <div key={index} className="space-y-2 mb-6">
-                  <h4 className="text-lg font-bold text-foreground">{edu.degree}</h4>
-                  <p className="text-primary font-medium">{edu.school}</p>
-
-                  <div className="flex justify-between items-center">
-                    <p className="text-sm text-muted-foreground">{edu.period}</p>
-                    <Badge className="bg-accent text-accent-foreground">
-                      {edu.honor}
-                    </Badge>
-                  </div>
+                  <p className="text-xs uppercase tracking-[0.12em] text-primary">{job.period}</p>
                 </div>
-              ))}
-            </CardContent>
-          </Card>
 
-          {/* Certifications */}
-          <Card className="bg-card border-border">
-            <CardContent className="p-6">
-              <div className="flex items-center gap-3 mb-4">
-                <Award className="w-6 h-6 text-accent" />
-                <h3 className="text-2xl font-bold text-foreground">Certifications</h3>
-              </div>
-
-              <div className="space-y-3">
-                {certifications.map((cert, index) => (
-                  <div
-                    key={index}
-                    className="flex items-center gap-3 p-3 bg-background/50 border border-border rounded-lg hover:border-accent/50 transition-colors"
-                  >
-                    <div className="w-2 h-2 rounded-full bg-accent" />
-                    <span className="text-foreground font-medium">{cert}</span>
-                  </div>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
+                <ul className="space-y-2">
+                  {job.bullets.map((bullet) => (
+                    <li key={bullet} className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+                      <span className="text-primary mr-2">●</span>
+                      {bullet}
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
+          ))}
         </div>
       </div>
     </section>
-    
   );
 };
 

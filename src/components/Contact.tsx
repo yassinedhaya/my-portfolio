@@ -98,15 +98,14 @@ const Contact = () => {
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/30 rounded-full mb-4">
             <Mail className="w-4 h-4 text-primary" />
             <span className="text-sm font-bold text-primary">
-              MULTIPLAYER MODE
+              CONTACT
             </span>
           </div>
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
-            Let's Connect!
+            Let’s Work Together
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Ready to collaborate on your next project? Send me a message and let's
-            build something amazing!
+            Open to full-time and contract opportunities. For hiring discussions, feel free to message me directly or by email.
           </p>
         </div>
 
@@ -205,12 +204,11 @@ const Contact = () => {
 
             <Card className="bg-gradient-to-br from-primary/10 to-accent/10 border-primary/30">
               <CardContent className="p-6 text-center">
-                <div className="text-4xl mb-3">💼</div>
                 <h3 className="text-lg font-bold text-foreground mb-2">
                   Available for Hire
                 </h3>
                 <p className="text-sm text-muted-foreground">
-                  I'm currently open to new opportunities and exciting projects!
+                  Based in Tunisia, open to EU relocation.
                 </p>
               </CardContent>
             </Card>

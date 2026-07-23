@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Home, User, Briefcase, FileText, Mail, Menu, X } from "lucide-react";
+import { Home, User, Briefcase, FolderKanban, Wrench, GraduationCap, Mail, Menu, X } from "lucide-react";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -11,8 +11,7 @@ const Navigation = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
 
-      // Update active section based on scroll position
-      const sections = ["home", "about", "projects", "resume", "contact"];
+      const sections = ["home", "about", "experience", "projects", "skills", "education", "contact"];
       for (const section of sections) {
         const element = document.getElementById(section === "home" ? "" : section);
         if (element) {
@@ -40,9 +39,11 @@ const Navigation = () => {
 
   const navItems = [
     { id: "home", label: "Home", icon: Home },
-    { id: "about", label: "About", icon: User },
-    { id: "projects", label: "Projects", icon: Briefcase },
-    { id: "resume", label: "Resume", icon: FileText },
+    { id: "about", label: "Summary", icon: User },
+    { id: "experience", label: "Experience", icon: Briefcase },
+    { id: "projects", label: "Projects", icon: FolderKanban },
+    { id: "skills", label: "Skills", icon: Wrench },
+    { id: "education", label: "Education", icon: GraduationCap },
     { id: "contact", label: "Contact", icon: Mail },
   ];
 
@@ -60,7 +61,7 @@ const Navigation = () => {
             {/* Logo */}
             <button
               onClick={() => scrollToSection("home")}
-              className="text-xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent hover:scale-105 transition-transform"
+              className="text-xl font-semibold text-foreground hover:text-primary transition-colors"
             >
               &lt;Dhaya/&gt;
             </button>
