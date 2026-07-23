@@ -28,7 +28,6 @@ const Resume = () => {
         "Organized hackathons & workshops with 50+ participants",
         "Increased team efficiency by 30% through optimized workflows",
       ],
-      level: 90,
     },
     {
       title: "Software Developer",
@@ -39,7 +38,6 @@ const Resume = () => {
         "Reduced data access time by 25% for 100+ users",
         "Ensured secure data storage and optimized UX flow",
       ],
-      level: 70,
     },
     {
       title: "Software Developer",
@@ -50,7 +48,6 @@ const Resume = () => {
         "Improved system efficiency for 50+ daily active users",
         "Optimized backend ensuring smoother data operations",
       ],
-      level: 60,
     },
   ];
 
@@ -90,7 +87,7 @@ const Resume = () => {
         <div className="text-center mb-12 animate-fade-in">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/30 rounded-full mb-4">
             <Shield className="w-4 h-4 text-primary" />
-            <span className="text-sm font-bold text-primary">CHARACTER PROFILE</span>
+            <span className="text-sm font-bold text-primary">EXPERIENCE</span>
           </div>
 
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
@@ -98,7 +95,7 @@ const Resume = () => {
           </h2>
 
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-6">
-            Leveling up through professional experience, education, and continuous growth.
+            3+ years of professional experience across web platforms, AI tooling, and technical mentorship.
           </p>
 
           <Button
@@ -132,12 +129,7 @@ const Resume = () => {
                     </div>
 
                     <div className="text-right">
-                      <div className="inline-flex items-center gap-2 px-3 py-1 bg-accent/10 border border-accent/30 rounded-full">
-                        <span className="text-xs font-bold text-accent">
-                          LEVEL {job.level}
-                        </span>
-                      </div>
-                      <p className="text-sm text-muted-foreground mt-1">{job.period}</p>
+                      <p className="text-sm text-muted-foreground">{job.period}</p>
                     </div>
                   </div>
 

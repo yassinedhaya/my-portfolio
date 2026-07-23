@@ -39,22 +39,7 @@ const Index = () => {
       <footer className="border-t border-border py-8 px-4 text-center">
         <div className="max-w-6xl mx-auto">
           <p className="text-muted-foreground">
-            © 2026 Yassine Dhaya . Built with ❤️ and lots of ☕
-          </p>
-          <p className="text-sm text-muted-foreground mt-2">
-            Press{" "}
-            <kbd className="px-2 py-1 bg-muted rounded text-xs border border-border">
-              Ctrl
-            </kbd>{" "}
-            +{" "}
-            <kbd className="px-2 py-1 bg-muted rounded text-xs border border-border">
-              Shift
-            </kbd>{" "}
-            +{" "}
-            <kbd className="px-2 py-1 bg-muted rounded text-xs border border-border">
-              6
-            </kbd>{" "}
-            for a surprise 🎮
+            © 2026 Yassine Dhaya · Built with React & Vite
           </p>
         </div>
       </footer>

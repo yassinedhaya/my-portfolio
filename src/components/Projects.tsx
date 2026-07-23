@@ -231,7 +231,7 @@ const Projects = () => {
                   <Badge
                     key={tag}
                     variant="secondary"
-                    className="text-xs bg-white hover:bg-muted/80"
+                    className="text-xs"
                   >
                     {tag}
                   </Badge>
@@ -291,10 +291,10 @@ const Projects = () => {
         <div className="text-center mb-12 animate-fade-in">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-secondary/10 border border-secondary/30 rounded-full mb-4">
             <Star className="w-4 h-4 text-secondary" />
-            <span className="text-sm font-bold text-secondary">QUEST LOG</span>
+            <span className="text-sm font-bold text-secondary">PROJECTS</span>
           </div>
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
-            Completed Quests
+            Selected Work
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             New product builds from GitHub plus legacy projects preserved in a dedicated R&D archive

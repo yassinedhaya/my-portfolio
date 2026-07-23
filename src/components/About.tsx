@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Code2, Gamepad2, Zap, Heart, Trophy, Globe, Brain } from "lucide-react";
+import { Code2, Globe, Brain, Heart, User } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
 interface SkillBarProps {
@@ -58,14 +58,11 @@ const About = () => {
     { name: "Mentorship & Product Delivery", level: 94, color: "bg-primary" },
   ];
 
-  // ----------------------
-  // CHARACTER TRAITS (CV)
-  // ----------------------
   const traits = [
-    { icon: Brain, label: "AI Integration", value: "95", color: "text-primary" },
-    { icon: Gamepad2, label: "XR/Game Dev", value: "97", color: "text-secondary" },
-    { icon: Code2, label: "Full-Stack Skills", value: "92", color: "text-accent" },
-    { icon: Heart, label: "Mentorship", value: "100", color: "text-secondary" },
+    { icon: Brain, label: "AI Integration", value: "On-device & cloud", color: "text-primary" },
+    { icon: Globe, label: "XR / Game Dev", value: "Unity · MRTK · VR", color: "text-secondary" },
+    { icon: Code2, label: "Full-Stack", value: "Angular · React · Node", color: "text-accent" },
+    { icon: Heart, label: "Mentorship", value: "100+ students", color: "text-secondary" },
   ];
 
   return (
@@ -75,12 +72,12 @@ const About = () => {
         {/* Section Header */}
         <div className="text-center mb-12 animate-fade-in">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-accent/10 border border-accent/30 rounded-full mb-4">
-            <Trophy className="w-4 h-4 text-accent" />
-            <span className="text-sm font-bold text-accent">CHARACTER STATS</span>
+            <User className="w-4 h-4 text-accent" />
+            <span className="text-sm font-bold text-accent">ABOUT</span>
           </div>
 
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
-            About This Player
+            About Me
           </h2>
 
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -91,10 +88,10 @@ const About = () => {
 
         <div className="grid md:grid-cols-2 gap-8 mb-12">
 
-          {/* Origin Story */}
+          {/* Background */}
           <Card className="bg-card border-border hover:border-primary/50 transition-colors">
             <CardContent className="p-6 space-y-4">
-              <h3 className="text-2xl font-bold text-foreground mb-4">Origin Story</h3>
+              <h3 className="text-2xl font-bold text-foreground mb-4">Background</h3>
 
               <p className="text-muted-foreground leading-relaxed">
                 I started with solid software engineering fundamentals, then expanded into XR,
@@ -110,10 +107,10 @@ const About = () => {
             </CardContent>
           </Card>
 
-          {/* Character Traits */}
+          {/* Focus Areas */}
           <Card className="bg-card border-border">
             <CardContent className="p-6">
-              <h3 className="text-2xl font-bold text-foreground mb-6">Character Traits</h3>
+              <h3 className="text-2xl font-bold text-foreground mb-6">Focus Areas</h3>
 
               <div className="grid grid-cols-2 gap-4">
                 {traits.map((trait, index) => (
@@ -123,8 +120,8 @@ const About = () => {
                     style={{ animationDelay: `${index * 100}ms` }}
                   >
                     <trait.icon className={`w-8 h-8 mx-auto mb-2 ${trait.color}`} />
-                    <div className="text-2xl font-bold text-foreground">{trait.value}</div>
-                    <div className="text-xs text-muted-foreground">{trait.label}</div>
+                    <div className="text-sm font-semibold text-foreground leading-tight">{trait.value}</div>
+                    <div className="text-xs text-muted-foreground mt-1">{trait.label}</div>
                   </div>
                 ))}
               </div>
@@ -135,7 +132,7 @@ const About = () => {
         {/* Skill Tree */}
         <Card className="bg-card border-border">
           <CardContent className="p-6">
-            <h3 className="text-2xl font-bold text-foreground mb-6">Skill Tree</h3>
+            <h3 className="text-2xl font-bold text-foreground mb-6">Skills</h3>
             <div className="grid md:grid-cols-2 gap-6">
               {skills.map((skill) => (
                 <SkillBar key={skill.name} {...skill} />
