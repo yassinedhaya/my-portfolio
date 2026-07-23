@@ -257,7 +257,7 @@ const Projects = () => {
                     ) : (
                       <ExternalLink className="w-4 h-4 mr-1" />
                     )}
-                    {project.linkLabel ?? "Demo"}
+                    {project.linkLabel ?? "View"}
                   </Button>
                 )}
                 {project.Trailer && (
