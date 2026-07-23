@@ -14,14 +14,12 @@ interface Project {
   link?: string;
   linkLabel: string;
   Trailer?: string;
-  trailerLabel?: string;
   Test?: string;
-  testLabel?: string;
 }
 
 const Projects = () => {
   const [hoveredProject, setHoveredProject] = useState<string | null>(null);
-  const [achievementsShown, setAchievementsShown] = useState<{ [key: string]: boolean }>({});
+  const [shownAchievements, setShownAchievements] = useState<{ [key: string]: boolean }>({});
   // tracks which projects have shown their achievement
 
   const githubProjects: Project[] = [
@@ -128,7 +126,6 @@ const Projects = () => {
       link: "https://www.linkedin.com/in/yassinedhaya/details/projects/?locale=en_US",
       linkLabel: "Project Story",
       Trailer: "https://www.youtube.com/watch?v=j9TKsLdi8vc",
-      trailerLabel: "Trailer",
     },
     {
       title: "Study Buddy – Educational Mini-Games",
@@ -170,7 +167,6 @@ const Projects = () => {
       link: "https://www.linkedin.com/in/yassinedhaya/details/projects/?locale=en_US",
       linkLabel: "Project Story",
       Trailer: "https://www.youtube.com/watch?v=CQ659lQ6ebk",
-      trailerLabel: "Trailer",
     },
     {
       title: "Whispers of the Enigma – VR Escape Game",
@@ -182,18 +178,16 @@ const Projects = () => {
       link: "https://www.linkedin.com/in/yassinedhaya/details/projects/?locale=en_US",
       linkLabel: "Project Story",
       Trailer: "https://www.youtube.com/watch?v=lBxNnFKvXoY",
-      trailerLabel: "Trailer",
       Test: "https://gamix-esprit.itch.io/whispers-of-the-enigma",
-      testLabel: "Download",
     },
   ];
 
   const handleAchievement = (projectId: string, achievement: string) => {
-    if (!achievementsShown[projectId]) {
+    if (!shownAchievements[projectId]) {
       toast.success(`🏆 Achievement Unlocked: ${achievement}`, {
         description: "Click on project links to explore more!",
       });
-      setAchievementsShown((prev) => ({ ...prev, [projectId]: true }));
+      setShownAchievements((prev) => ({ ...prev, [projectId]: true }));
     }
   };
 
@@ -268,7 +262,7 @@ const Projects = () => {
                     onClick={() => window.open(project.Trailer, "_blank")}
                   >
                     <Youtube className="w-4 h-4 mr-1" />
-                    {project.trailerLabel ?? "Trailer"}
+                    Trailer
                   </Button>
                 )}
                 {project.Test && (
@@ -279,7 +273,7 @@ const Projects = () => {
                     onClick={() => window.open(project.Test, "_blank")}
                   >
                     <CloudDownload className="w-4 h-4 mr-1" />
-                    {project.testLabel ?? "Download"}
+                    Download
                   </Button>
                 )}
               </div>
