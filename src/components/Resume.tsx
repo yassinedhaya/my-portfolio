@@ -10,8 +10,7 @@ const Resume = () => {
       description: "Your resume has been downloaded successfully.",
     });
 
-    // Add your online resume link here
-    window.open("/Yassine_Dhaya_RESUME_EU_2026.pdf", "_blank");
+    window.open(`${import.meta.env.BASE_URL}2026ResumeYD.pdf`, "_blank");
   };
 
   // ---------------------------
