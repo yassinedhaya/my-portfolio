@@ -10,7 +10,7 @@ const Resume = () => {
       description: "Your resume has been downloaded successfully.",
     });
 
-    window.open(`${import.meta.env.BASE_URL}2026ResumeYD.pdf`, "_blank");
+    window.open(`${import.meta.env.BASE_URL}2026Resume-YD.pdf`, "_blank");
   };
 
   // ---------------------------
