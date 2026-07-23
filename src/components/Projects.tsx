@@ -12,7 +12,7 @@ interface Project {
   achievement: string;
   icon: string;
   link?: string;
-  linkLabel?: string;
+  linkLabel: string;
   Trailer?: string;
   trailerLabel?: string;
   Test?: string;
@@ -257,7 +257,7 @@ const Projects = () => {
                     ) : (
                       <ExternalLink className="w-4 h-4 mr-1" />
                     )}
-                    {project.linkLabel ?? "View"}
+                    {project.linkLabel}
                   </Button>
                 )}
                 {project.Trailer && (
