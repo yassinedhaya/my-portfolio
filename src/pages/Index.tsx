@@ -39,7 +39,7 @@ const Index = () => {
       <footer className="border-t border-border py-8 px-4 text-center">
         <div className="max-w-6xl mx-auto">
           <p className="text-muted-foreground">
-            © 2025 Yassine Dhaya . Built with ❤️ and lots of ☕
+            © 2026 Yassine Dhaya . Built with ❤️ and lots of ☕
           </p>
           <p className="text-sm text-muted-foreground mt-2">
             Press{" "}

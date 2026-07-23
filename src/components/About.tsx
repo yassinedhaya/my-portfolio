@@ -50,12 +50,12 @@ const About = () => {
   const skills = [
     { name: "Unity / C#", level: 95, color: "bg-primary" },
     { name: "XR • AR • VR Development", level: 90, color: "bg-secondary" },
-    { name: "React.js / TypeScript", level: 88, color: "bg-primary" },
-    { name: "Angular / Ionic", level: 85, color: "bg-accent" },
-    { name: "Node.js / Backend API", level: 84, color: "bg-primary" },
-    { name: "MongoDB / Data Modeling", level: 80, color: "bg-secondary" },
-    { name: "AI Integration (LLMs, Voice, APIs)", level: 87, color: "bg-accent" },
-    { name: "Agile Leadership & Mentorship", level: 92, color: "bg-primary" },
+    { name: "React / TypeScript", level: 92, color: "bg-primary" },
+    { name: "React Native / Kotlin", level: 84, color: "bg-accent" },
+    { name: "Python / FastAPI", level: 86, color: "bg-primary" },
+    { name: "Supabase / PostgreSQL", level: 85, color: "bg-secondary" },
+    { name: "AI Integration (LLMs, Voice, ATS)", level: 91, color: "bg-accent" },
+    { name: "Mentorship & Product Delivery", level: 94, color: "bg-primary" },
   ];
 
   // ----------------------
@@ -84,8 +84,8 @@ const About = () => {
           </h2>
 
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            A full-stack & XR engineer passionate about immersive experiences, AI-driven apps,
-            and leading teams to build impactful digital products.
+            A full-stack, XR, and AI engineer building products across web, desktop, mobile,
+            and immersive experiences.
           </p>
         </div>
 
@@ -97,16 +97,15 @@ const About = () => {
               <h3 className="text-2xl font-bold text-foreground mb-4">Origin Story</h3>
 
               <p className="text-muted-foreground leading-relaxed">
-                Starting from a strong engineering foundation, I evolved from building 
-                software systems to crafting immersive XR experiences and AI-powered applications.
-                My journey took me through web development, data systems, game logic, and 
-                real-time 3D interactions.
+                I started with solid software engineering fundamentals, then expanded into XR,
+                real-time 3D systems, and AI-powered product development. Today my work spans
+                web platforms, desktop tooling, mobile experiences, and private local AI apps.
               </p>
 
               <p className="text-muted-foreground leading-relaxed">
-                As a technical instructor and developer, I mentored 100+ engineering students 
-                and led multiple production-ready projects. Today, I combine full-stack architecture, 
-                Unity XR, and AI integration to bring innovative ideas to life.
+                Alongside product work, I teach and mentor engineering students while shipping
+                practical tools such as CV optimization platforms, academic workflow apps, and
+                immersive prototypes. I enjoy turning ambitious ideas into polished, usable builds.
               </p>
             </CardContent>
           </Card>

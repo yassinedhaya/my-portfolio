@@ -52,7 +52,7 @@ const Hero = () => {
           <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold
             bg-gradient-to-r from-primary via-secondary to-accent
             bg-clip-text text-transparent mt-2 text-center">
-            Software Engineer × Game Developer
+            Full-Stack Engineer × XR & AI Builder
           </h2>
 
           {/* READY? typing */}
@@ -112,7 +112,7 @@ const Hero = () => {
           </h1>
 
           <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-6 sm:mb-8 font-mono">
-            &gt; Software Engineer × Game Developer
+            &gt; Full-Stack Engineer × XR & AI Builder
           </p>
 
           {/* XP Bar */}
@@ -133,13 +133,13 @@ const Hero = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 max-w-lg mx-auto mb-6 sm:mb-8">
             <div className="bg-card border border-border rounded-lg p-4 hover:border-primary/50 transition-colors">
               <Code2 className="w-6 h-6 text-primary mx-auto mb-2" />
-              <div className="text-xl sm:text-2xl font-bold text-foreground">2+</div>
+              <div className="text-xl sm:text-2xl font-bold text-foreground">3+</div>
               <div className="text-xs sm:text-sm text-muted-foreground">Years XP</div>
             </div>
             <div className="bg-card border border-border rounded-lg p-4 hover:border-secondary/50 transition-colors">
               <Gamepad2 className="w-6 h-6 text-secondary mx-auto mb-2" />
-              <div className="text-xl sm:text-2xl font-bold text-foreground">10+</div>
-              <div className="text-xs sm:text-sm text-muted-foreground">Projects</div>
+              <div className="text-xl sm:text-2xl font-bold text-foreground">15+</div>
+              <div className="text-xs sm:text-sm text-muted-foreground">Public Repos</div>
             </div>
             <div className="bg-card border border-border rounded-lg p-4 hover:border-accent/50 transition-colors">
               <Sparkles className="w-6 h-6 text-accent mx-auto mb-2" />

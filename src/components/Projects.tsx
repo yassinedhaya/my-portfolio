@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, Trophy, Star, Zap, Youtube, CloudDownload } from "lucide-react";
+import { ExternalLink, Trophy, Star, Zap, Youtube, CloudDownload, Github } from "lucide-react";
 import { toast } from "sonner";
 
 interface Project {
@@ -12,8 +12,11 @@ interface Project {
   achievement: string;
   icon: string;
   link?: string;
+  linkLabel?: string;
   Trailer?: string;
+  trailerLabel?: string;
   Test?: string;
+  testLabel?: string;
 }
 
 const Projects = () => {
@@ -23,59 +26,64 @@ const Projects = () => {
 
   const projects: Project[] = [
     {
-      title: "Tic Tac Toe – MCTS AI",
+      title: "LocalMind",
       description:
-        "A Unity WebGL Tic-Tac-Toe game implementing Monte Carlo Tree Search (MCTS) to enable strategic AI decision-making and optimal gameplay.",
-      tags: ["Unity", "C#", "WebGL", "AI", "MCTS"],
-      achievement: "AI Strategist",
-      icon: "⭕",
-      link: "https://www.linkedin.com/in/yassinedhaya/details/projects/?locale=en_US",
+        "A private, on-device AI assistant for Android with offline chat, PDF Q&A, voice features, and a native Kotlin inference layer powered by Google AI Edge LiteRT.",
+      tags: ["React Native", "Kotlin", "Android", "Gemma", "On-device AI"],
+      achievement: "Offline AI Builder",
+      icon: "📱",
+      link: "https://github.com/yassinedhaya/LocalMind",
+      linkLabel: "Repository",
     },
     {
-      title: "T-Booky – Book Exchange App",
+      title: "TailoredCV",
       description:
-        "A Flutter mobile application that allows users to upload, exchange, and request books with a clean UI and fully interactive user flow.",
-      tags: ["Flutter", "Dart", "Firebase", "Mobile"],
-      achievement: "App Builder",
-      icon: "📚",
-      link: "https://www.linkedin.com/in/yassinedhaya/details/projects/?locale=en_US",
+        "An AI-powered CV tailoring platform with ATS scoring, recruiter simulation, market-specific formatting, and secure Supabase-backed workflows.",
+      tags: ["React", "TypeScript", "Supabase", "PostgreSQL", "OpenAI"],
+      achievement: "Career Toolsmith",
+      icon: "🧾",
+      link: "https://github.com/yassinedhaya/TailoredCV",
+      linkLabel: "Repository",
     },
     {
-      title: "LaughRoom – Multiplayer VR Social Game",
+      title: "CV-Maker-Local",
       description:
-        "A multiplayer VR experience where players meet, communicate, play casual activities, and socialize in a fun virtual playground.",
-      tags: ["Unity", "C#", "VR", "Mirror Networking"],
-      achievement: "VR Creator",
-      icon: "😂",
-      link: "https://www.linkedin.com/in/yassinedhaya/details/projects/?locale=en_US",
-      Trailer: "https://www.youtube.com/watch?v=j9TKsLdi8vc",
-    },
-    {
-      title: "Study Buddy – Educational Mini-Games",
-      description:
-        "A Unity mobile app containing mini-games designed for children aged 5–12. Built with 3D assets modeled in Maya and optimized for mobile performance.",
-      tags: ["Unity", "C#", "Maya 3D", "Mobile"],
-      achievement: "Edu Game Dev",
-      icon: "🎒",
-      link: "https://www.linkedin.com/in/yassinedhaya/details/projects/?locale=en_US",
-    },
-    {
-      title: "Metaxpo – 3D Events Platform",
-      description:
-        "Developed a full immersive 3D events platform with interactive booths, real-time chat, admin analytics, and optimized backend pipelines. Showcased at the ESPRIT Bal des Projets.",
-      tags: ["React.js", "TypeScript", "Unity", "C#", "Strapi", "Node.js", "MongoDB"],
-      achievement: "XR Innovator",
-      icon: "🌐",
-      link: "https://www.linkedin.com/in/yassinedhaya/details/projects/?locale=en_US",
-    },
-    {
-      title: "HumAnatomy – Mixed Reality Anatomy App",
-      description:
-        "Built a mixed reality anatomy learning experience using Unity & MRTK with organ manipulation, realistic rendering, and interactive UI for medical students.",
-      tags: ["Unity", "C#", "MRTK", "Mixed Reality"],
-      achievement: "MR Developer",
+        "A local-first resume tailoring and job hunting workspace with per-section AI agents, ATS scoring, browser extension support, and private Ollama-based processing.",
+      tags: ["FastAPI", "React", "Electron", "Ollama", "Playwright"],
+      achievement: "Local AI Architect",
       icon: "🧠",
-      link: "https://www.linkedin.com/in/yassinedhaya/details/projects/?locale=en_US",
+      link: "https://github.com/yassinedhaya/CV-Maker-Local",
+      linkLabel: "Repository",
+    },
+    {
+      title: "AutoPost",
+      description:
+        "A full-stack SaaS platform for job discovery, CV tailoring, ATS optimization, alerts, and application tracking across multiple public job sources.",
+      tags: ["FastAPI", "Next.js", "PostgreSQL", "Docker", "AI"],
+      achievement: "Workflow Automator",
+      icon: "🚀",
+      link: "https://github.com/yassinedhaya/Auto-Post",
+      linkLabel: "Repository",
+    },
+    {
+      title: "EspritNote",
+      description:
+        "A desktop grade and module manager for teachers that streamlines imports, continuous-assessment calculations, exports, and academic status workflows.",
+      tags: ["Electron", "React", "TypeScript", "Tailwind", "XLSX"],
+      achievement: "EdTech Builder",
+      icon: "📊",
+      link: "https://github.com/yassinedhaya/EspritNote",
+      linkLabel: "Repository",
+    },
+    {
+      title: "Surveillance-Esprit",
+      description:
+        "A desktop productivity app built to calculate surveillance workloads and simplify teaching operations with a focused internal tooling experience.",
+      tags: ["JavaScript", "Desktop", "Operations", "Productivity"],
+      achievement: "Ops Simplifier",
+      icon: "🛡️",
+      link: "https://github.com/yassinedhaya/Surveillance-Esprit",
+      linkLabel: "Repository",
     },
     {
       title: "TRICO – AI Virtual Family Companion",
@@ -85,18 +93,19 @@ const Projects = () => {
       achievement: "AI Engineer",
       icon: "🤖",
       link: "https://www.linkedin.com/in/yassinedhaya/details/projects/?locale=en_US",
+      linkLabel: "Project Story",
       Trailer: "https://www.youtube.com/watch?v=CQ659lQ6ebk",
+      trailerLabel: "Trailer",
     },
     {
-      title: "Whispers of the Enigma – VR Escape Game",
+      title: "Metaxpo – 3D Events Platform",
       description:
-        "Developed the game logic and backend of a multiplayer VR escape experience using Unity, Mirror, and MongoDB with real-time analytics to optimize puzzle flow.",
-      tags: ["Unity", "C#", "VR", "Netcode", "Node.js", "MongoDB"],
-      achievement: "Game Architect",
-      icon: "🎮",
+        "A flagship immersive events platform combining full-stack web systems, real-time 3D experiences, and XR product thinking for large interactive showcases.",
+      tags: ["React", "TypeScript", "Unity", "Node.js", "MongoDB"],
+      achievement: "XR Innovator",
+      icon: "🌐",
       link: "https://www.linkedin.com/in/yassinedhaya/details/projects/?locale=en_US",
-      Trailer: "https://www.youtube.com/watch?v=lBxNnFKvXoY",
-      Test: "https://gamix-esprit.itch.io/whispers-of-the-enigma",
+      linkLabel: "Project Story",
     },
   ];
 
@@ -122,7 +131,7 @@ const Projects = () => {
             Completed Quests
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            A showcase of epic projects, legendary code, and achievements earned along the journey
+            A refreshed mix of recent GitHub builds, AI products, desktop tools, and flagship XR work
           </p>
         </div>
 
@@ -184,8 +193,12 @@ const Projects = () => {
                       className="flex-1 border-primary/30 hover:bg-primary/10"
                       onClick={() => window.open(project.link, "_blank")}
                     >
-                      <ExternalLink className="w-4 h-4 mr-1" />
-                      Demo
+                      {project.linkLabel === "Repository" ? (
+                        <Github className="w-4 h-4 mr-1" />
+                      ) : (
+                        <ExternalLink className="w-4 h-4 mr-1" />
+                      )}
+                      {project.linkLabel ?? "Demo"}
                     </Button>
                   )}
                   {project.Trailer && (
@@ -196,7 +209,7 @@ const Projects = () => {
                       onClick={() => window.open(project.Trailer, "_blank")}
                     >
                       <Youtube className="w-4 h-4 mr-1" />
-                      Trailer
+                      {project.trailerLabel ?? "Trailer"}
                     </Button>
                   )}
                   {project.Test && (
@@ -207,7 +220,7 @@ const Projects = () => {
                       onClick={() => window.open(project.Test, "_blank")}
                     >
                       <CloudDownload className="w-4 h-4 mr-1" />
-                      Download
+                      {project.testLabel ?? "Download"}
                     </Button>
                   )}
                 </div>
